@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 export default function Navbar() {
   const [displayNavList, setDisplayNavList] = useState(false);
 
-  const navListClass = displayNavList ?
-    'navbar-list--active' : 'navbar-list--inactive';
+  const navListClass = classNames('navbar-list', {
+    active: displayNavList,
+  });
 
   const toggleNavList = () => setDisplayNavList(prev => !prev);
 
